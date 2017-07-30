@@ -1,8 +1,8 @@
 Package: lvec
 Type: Package
 Title: Out of Memory Vectors
-Version: 0.1.0
-Date: 2017-07-13
+Version: 0.1.1
+Date: 2017-07-30
 Author: Jan van der Laan
 Maintainer: Jan van der Laan <djvanderlaan@unrealizedtime.nl>
 Description: Core functionality for working with vectors (numeric, integer,
@@ -20,6 +20,6 @@ License: GPL-3
 LazyLoad: yes
 RoxygenNote: 6.0.1
 NeedsCompilation: yes
-Packaged: 2017-07-13 09:01:11 UTC; eoos
+Packaged: 2017-07-30 20:53:29 UTC; eoos
 Repository: CRAN
-Date/Publication: 2017-07-13 10:43:04 UTC
+Date/Publication: 2017-07-30 21:01:48 UTC
