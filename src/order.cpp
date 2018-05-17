@@ -1,6 +1,4 @@
-#include "cppr.h"
-#include "ldat.h"
-#include "lvec.h"
+#include "../inst/include/lvec.h"
 #include "r_export.h"
 
 #include <algorithm>
@@ -16,9 +14,9 @@ class order_visitor : public ldat::lvec_visitor {
 
         bool operator()(ldat::vec::vecsize lhs, ldat::vec::vecsize rhs) {
           T val_lhs = vec_.get(lhs-1);
-          if (cppr::is_nan(val_lhs)) return false;
+          if (ldat::is_nan(val_lhs)) return false;
           T val_rhs = vec_.get(rhs-1);
-          if (cppr::is_nan(val_rhs)) return true;
+          if (ldat::is_nan(val_rhs)) return true;
           return val_lhs < val_rhs;
         }
 
@@ -50,7 +48,7 @@ class order_visitor : public ldat::lvec_visitor {
       return visit_template(vec);
     }
 
-    void visit(ldat::lvec<cppr::boolean>& vec) {
+    void visit(ldat::lvec<ldat::boolean>& vec) {
       return visit_template(vec);
     }
 
@@ -67,15 +65,13 @@ class order_visitor : public ldat::lvec_visitor {
 };
 
 
-extern "C" {
-  SEXP order(SEXP rv) {
-    CPPRTRY
-    order_visitor visitor{};
-    ldat::vec* v = sexp_to_vec(rv);
-    v->visit(&visitor);
-    return vec_to_sexp(visitor.result());
-    CPPRCATCH
-  }
-}
 
+RcppExport SEXP order(SEXP rv) {
+  BEGIN_RCPP
+  order_visitor visitor{};
+  Rcpp::XPtr<ldat::vec> v(rv);
+  v->visit(&visitor);
+  return Rcpp::XPtr<ldat::vec>(visitor.result());
+  END_RCPP
+}
 

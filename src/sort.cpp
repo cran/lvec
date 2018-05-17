@@ -1,6 +1,4 @@
-#include "cppr.h"
-#include "ldat.h"
-#include "lvec.h"
+#include "../inst/include/lvec.h"
 #include "r_export.h"
 
 #include <algorithm>
@@ -13,8 +11,8 @@ class sort_visitor : public ldat::lvec_visitor {
     class compare {
       public:
         bool operator()(const T& lhs, const T& rhs) {
-          if (cppr::is_nan(lhs)) return false;
-          if (cppr::is_nan(rhs)) return true;
+          if (ldat::is_nan(lhs)) return false;
+          if (ldat::is_nan(rhs)) return true;
           return lhs < rhs;
         }
     };
@@ -35,7 +33,7 @@ class sort_visitor : public ldat::lvec_visitor {
       return visit_template(vec);
     }
 
-    void visit(ldat::lvec<cppr::boolean>& vec) {
+    void visit(ldat::lvec<ldat::boolean>& vec) {
       return visit_template(vec);
     }
 
@@ -49,15 +47,12 @@ class sort_visitor : public ldat::lvec_visitor {
 
 // The function below doesn't return anything as the original object (pointed 
 // to by rv) is modified. 
-
-extern "C" {
-  SEXP sort(SEXP rv) {
-    CPPRTRY
-    sort_visitor visitor{};
-    ldat::vec* v = sexp_to_vec(rv);
-    v->visit(&visitor);
-    return R_NilValue;
-    CPPRCATCH
-  }
+RcppExport SEXP sort(SEXP rv) {
+  BEGIN_RCPP
+  sort_visitor visitor{};
+  Rcpp::XPtr<ldat::vec> v(rv);
+  v->visit(&visitor);
+  return R_NilValue;
+  END_RCPP
 }
 

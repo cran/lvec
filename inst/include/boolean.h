@@ -1,14 +1,16 @@
 #ifndef boolean_h
 #define boolean_h
 
-namespace cppr {
+#include "cppr.h"
+
+namespace ldat {
 
   class boolean {
     public:
       boolean() : val_(2) {}
       boolean(const boolean& bl) : val_(bl.val_) {}
       boolean(int val) : val_(val != 0) {
-        if (cppr::is_na(val)) val_ = 2;
+        if (is_na(val)) val_ = 2;
       }
       boolean(bool val) : val_(val ? 1 : 0) {}
 
@@ -22,7 +24,7 @@ namespace cppr {
       }
 
       boolean& operator=(int val) {
-        if (cppr::is_na(val)) {
+        if (is_na(val)) {
           val_ = 2;
         } else val_ = val != 0;
         return *this;
@@ -38,7 +40,7 @@ namespace cppr {
       operator double() const { 
         switch (val_) {
           case 1: return 1.0;
-          case 2: return cppr::na<double>();
+          case 2: return ldat::na<double>();
           default: return  0.0;
         }
       }
@@ -46,7 +48,7 @@ namespace cppr {
       operator int() const { 
         switch (val_) {
           case 1: return 1;
-          case 2: return cppr::na<int>();
+          case 2: return ldat::na<int>();
           default: return  0;
         }
       }
@@ -57,11 +59,7 @@ namespace cppr {
 
   inline bool is_na(const boolean& x) { return x.na();}
   inline bool is_nan(const boolean& x) { return x.na();}
-
-  inline double base_type(double v) { return double();}
-  inline int base_type(int v) { return int();}
   inline int base_type(const boolean& v) { return int();}
-  inline std::string base_type(const std::string& v) { return std::string();}
 
   inline bool operator<(const boolean& lhs, const boolean& rhs)  {
     if (lhs.na()) return false;
@@ -74,8 +72,6 @@ namespace cppr {
     if (lhs.na() || rhs.na()) return false;
     return static_cast<bool>(lhs) == static_cast<bool>(rhs);
   }
-
-
 }
 
 #endif

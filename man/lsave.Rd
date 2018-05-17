@@ -35,4 +35,7 @@ After that the lvec is written in blocks (or chunks) to files having
 names \code{<filename>.00001.RDS}, \code{<filename>.00002.RDS} etc. Some 
 additional data (data type, the number of blocks, the size of the lvec, etc)
 is written to the file \code{<filename>.RDS}.
+
+The size of the chunks can be controlled by the option `chunk_size` (see
+\code{\link{chunk}}).
 }

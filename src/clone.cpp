@@ -1,14 +1,10 @@
-#include "ldat.h"
-#include "lvec.h"
+#include "../inst/include/lvec.h"
 #include "r_export.h"
 
-extern "C" {
-  SEXP lclone(SEXP rv) {
-    CPPRTRY
-    ldat::vec* v = sexp_to_vec(rv);
-    ldat::vec* result = v->clone();
-    return vec_to_sexp(result);
-    CPPRCATCH
-  }
+RcppExport SEXP lclone(SEXP rv) {
+  BEGIN_RCPP
+  Rcpp::XPtr<ldat::vec> v(rv);
+  return Rcpp::XPtr<ldat::vec>(v->clone(), true);
+  END_RCPP
 }
 
