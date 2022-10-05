@@ -1,6 +1,6 @@
-6b77f0ac1d360291a60a04a78669ca5f *DESCRIPTION
+a011a3fcd58b748a394f92da1cefef32 *DESCRIPTION
 532636f3f44293f4f7b5e2edcd9546b6 *NAMESPACE
-f0a841f178d0444693bc34c7f866944f *NEWS
+2a8b5622813105a0242091e379b33710 *NEWS
 d70b33f50d8c7fd038cb09b8e42532d0 *R/attr.R
 74c9159304f86d7b8485f63fe01e1705 *R/chunk.R
 76aa572b0db75f833006fc24fab6d078 *R/clone.R
@@ -18,10 +18,10 @@ a4a476ff9c618fc9c4f252cd8ee2db37 *R/sort.R
 a4bca4370a94660dae6acc91af0e0eba *R/strlen.R
 4f2d6805185b36c2f497800eda7f0835 *inst/include/boolean.h
 f646f8829a33339ee052ab5cefba64c9 *inst/include/cppr.h
-ec725417321b4686ee9a14821013ab03 *inst/include/iterator.h
+2dc13616644c8f3f263545fd391d7033 *inst/include/iterator.h
 ae6d2ae33a31583c081027cff7b6ebe6 *inst/include/lvec.h
 63c94bb490f0e0d5b796f3a25a07c569 *inst/include/lvec_interface.h
-f3df4fd76ff5b86574886b93e1637d7b *inst/include/memmap.h
+c15f409bce8817f9bc9b8fc8658203a4 *inst/include/memmap.h
 0b83fc91292d9cace3a0719432c56659 *inst/include/tempfile.h
 3492b00b39347cfd3fa64685bfdab3db *inst/include/val_ref.h
 d0cd55f53453fdc03f783d2d9bd2ed53 *inst/include/vec.h
@@ -35,7 +35,7 @@ af0ce6dabf30df4c563a8fa80b2bb4ef *man/length.Rd
 026a75c415221caf67f3adeb6e0e72ce *man/lget.Rd
 b4657e3bf24fe8cc4928e537c0ff187f *man/lsave.Rd
 437f92b70222015e12125884f3046845 *man/lset.Rd
-99b083cf39518c341c5de802e7b7e20b *man/lvec.Rd
+a3f4958ad7d9f8c95e25d0a29acb9261 *man/lvec.Rd
 882d89a412d074f5a1d7a82ae12bf0b0 *man/lvec_type.Rd
 cc5dd2fe009826927273e578380dc385 *man/order.Rd
 1e953214a1e87ab51530678004660508 *man/print.lvec.Rd
