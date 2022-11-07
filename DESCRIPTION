@@ -1,8 +1,8 @@
 Package: lvec
 Type: Package
 Title: Out of Memory Vectors
-Version: 0.2.4
-Date: 2023-10-01
+Version: 0.2.5
+Date: 2023-10-20
 Author: Jan van der Laan
 Maintainer: Jan van der Laan <r@eoos.dds.nl>
 Description: Core functionality for working with vectors (numeric, integer,
@@ -20,8 +20,8 @@ Suggests: testthat
 SystemRequirements: C++11
 License: GPL-3
 LazyLoad: yes
-RoxygenNote: 7.2.0
+RoxygenNote: 7.2.1
 NeedsCompilation: yes
-Packaged: 2022-10-04 14:53:09 UTC; eoos
+Packaged: 2022-10-22 15:24:04 UTC; eoos
 Repository: CRAN
-Date/Publication: 2022-10-05 11:10:02 UTC
+Date/Publication: 2022-11-07 14:40:05 UTC
